@@ -1,0 +1,47 @@
+data:
+  data_dir: "./data" # Path relative to project root
+  image_folder: "images" # Relative to data_dir
+  csv_files: ["metadata.csv"] # Relative to data_dir
+  image_width: 32
+  image_height: 32
+
+model:
+  vae_id: "stabilityai/sd-vae-ft-mse"
+  clip_id: "openai/clip-vit-base-patch32"
+  vae_scale_factor: 0.18215
+  diffusion_hidden_dim: 384
+  diffusion_num_heads: 8
+  diffusion_time_emb_dim: 320
+  latent_channels: 4
+
+scheduler:
+  train_timesteps: 1000
+  beta_start: 0.00085
+  beta_end: 0.012
+
+training:
+  device: "cuda" # "cuda" or "cpu"
+  seed: 42
+  num_epochs: 200
+  batch_size: 32
+  learning_rate: 1e-4
+  optimizer_weight_decay: 1e-2
+  lr_scheduler_type: "cosine" # "cosine", "linear", "constant", etc. (expand if needed)
+  lr_scheduler_t_max_epochs_factor: 1.0 # Factor of num_epochs for T_max (for cosine)
+  lr_scheduler_eta_min: 2e-5 # For cosine
+  use_amp: true # Automatic Mixed Precision
+  grad_clip_max_norm: 1.0 # Optional gradient clipping (set to null or 0 to disable)
+  empty_prompt_prob: 0.5 # Classifier-Free Guidance training prob
+
+output:
+  output_dir: "./outputs" # Path relative to project root
+  model_subdir: "models"
+  plot_subdir: "plots"
+  model_filename: "diffusion_model_emoji.pth"
+  loss_plot_filename: "training_loss.png"
+  save_epoch_freq: 50 # Save model every N epochs
+  log_freq: 100 # Print batch loss every N steps (can be null)
+
+dataloader:
+  num_workers: 0
+  pin_memory: False # Auto-adjust based on device in script
