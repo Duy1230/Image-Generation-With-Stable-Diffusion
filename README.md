@@ -6,8 +6,8 @@ This project implements and trains a Denoising Diffusion Probabilistic Model (DD
 
 1.  **Clone the repository:**
     ```bash
-    git clone <your-repo-url>
-    cd emoji-diffusion
+    git clone https://github.com/Duy1230/Image-Generation-With-Stable-Diffusion.git
+    cd Image-Generation-With-Stable-Diffusion 
     ```
 2.  **Create a virtual environment (recommended):**
     ```bash
@@ -21,7 +21,8 @@ This project implements and trains a Denoising Diffusion Probabilistic Model (DD
     ```
 4.  **Prepare Data:**
     - Place your image files in the `data/images/` directory.
-    - Ensure your `data/metadata.csv` file has columns like `file_name` (relative path within `images/`) and `prompt`.
+    - Ensure your `data/metadata.csv` is included
+    - The data maybe download [here](https://drive.google.com/file/d/15Z_F4Dwgb3NLqEGnVMUEJqyxXgW7Gx-h/view)
 
 ## Configuration
 
